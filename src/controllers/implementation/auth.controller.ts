@@ -14,7 +14,9 @@ export class AuthController implements IAuthController {
     }
 
     async login(req: Request, res: Response): Promise<void> {
-        res.status(200).json({ message: 'User logged in successfully' });
+        const { phone } = req.body;
+        const response = await this._authService.login({ phone });
+        sendResponse(res, response);
     }
 
     async sendOtpPhone(req: Request, res: Response): Promise<void> {

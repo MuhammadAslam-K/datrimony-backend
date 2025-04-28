@@ -41,8 +41,8 @@ app.get('/health', (_req, res) => {
     logger.info('Connected to MongoDB database ✅');
 
     // Connect Redis
-    await connectRedis();
-    logger.info('Connected to Redis server ✅');
+    // await connectRedis();
+    // logger.info('Connected to Redis server ✅');
 
     // Start HTTP server
     const PORT = process.env.PORT || 5000;

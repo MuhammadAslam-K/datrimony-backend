@@ -15,7 +15,6 @@ export const redisSet = async (key: string | number, value: any, expireInSec?: n
 
 
 export const redisGet = async (key: string) => {
-    console.log('redisGet', key);
     const stringKey = String(key)
 
     const value = await redisClient.get(stringKey);
@@ -23,7 +22,8 @@ export const redisGet = async (key: string) => {
 };
 
 export const redisDelete = async (key: string) => {
-    await redisClient.del(key);
+    const stringKey = String(key)
+    await redisClient.del(stringKey);
 };
 
 export const redisUpdate = async (key: string, value: any) => {

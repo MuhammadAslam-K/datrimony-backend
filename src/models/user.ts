@@ -6,6 +6,7 @@ export interface IUser extends Document {
   name: string;
   email: string;
   phone?: string;
+  refreshToken: string;
   isActive: boolean;
   emailVerified: boolean;
   phoneVerified: boolean;
@@ -31,6 +32,9 @@ const userSchema = new Schema<IUser>(
       type: String,
       unique: true,
       sparse: true
+    },
+    refreshToken: {
+      type: String,
     },
     isActive: {
       type: Boolean,
